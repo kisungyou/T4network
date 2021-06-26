@@ -4,11 +4,11 @@ destination: docs
 
 template:
   params:
-    bootswatch: morph
-    
+    bootswatch: flatly
+
 home:
   strip_header: false
-  
+
 navbar:
   title: "T4network"
   left:
@@ -23,3 +23,20 @@ navbar:
       href: https://github.com/kisungyou/T4network
     - icon: fa-envelope
       href: mailto:kisungyou@outlook.com
+
+reference:
+  - title: "(1) Community Detection"
+    contents:
+      - has_concept("cluster")
+  - title: "(2) Statistical Inference"
+    contents:
+      - has_concept("inference")
+  - title: "(3) Network Embedding"
+    contents:
+      - has_concept("embedding")
+  - title: "(4) Relevant Computation"
+    contents:
+      - has_concept("compute")
+  - title: "(5) Data"
+    contents:
+      - has_concept("data")
