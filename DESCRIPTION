@@ -1,0 +1,17 @@
+Package: T4network
+Type: Package
+Title: Tools for Network Analysis
+Version: 0.1.0
+Authors@R: c(person("Kisung", "You", role = c("aut", "cre"),email = "kisungyou@outlook.com",comment=c(ORCID="0000-0002-8584-459X")))
+Description: More details about what the package does. See
+      <http://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file>
+      for details on how to write this part.
+License: MIT + file LICENSE
+Suggests: tinytest
+Encoding: UTF-8
+RoxygenNote: 7.1.1
+RdMacros: Rdpack
+Imports: Rcpp (>= 1.0.6), Rdpack, geigen, igraph, latentnet, maotai, stats, network, utils
+LinkingTo: Rcpp, RcppArmadillo
+Depends: 
+    R (>= 2.10)

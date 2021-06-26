@@ -1,0 +1,25 @@
+url: https://kisungyou.com/T4network
+
+destination: docs
+
+template:
+  params:
+    bootswatch: morph
+    
+home:
+  strip_header: false
+  
+navbar:
+  title: "T4network"
+  left:
+    - text: "Functions"
+      href: reference/index.html
+    - text: "News"
+      href: news/index.html
+  right:
+    - icon: fa-twitter
+      href: https://twitter.com/kisung_you
+    - icon: fa-github
+      href: https://github.com/kisungyou/T4network
+    - icon: fa-envelope
+      href: mailto:kisungyou@outlook.com
