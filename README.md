@@ -7,7 +7,6 @@
 
 [![Travis build
 status](https://travis-ci.com/kisungyou/T4network.svg?branch=master)](https://travis-ci.com/kisungyou/T4network)
-[![R-CMD-check](https://github.com/kisungyou/T4network/workflows/R-CMD-check/badge.svg)](https://github.com/kisungyou/T4network/actions)
 <!-- badges: end -->
 
 **T4network** is an **R** package for network analysis. It is not aimed
