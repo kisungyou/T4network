@@ -34,7 +34,7 @@ reference:
   - title: "(3) Network Embedding"
     contents:
       - has_concept("embedding")
-  - title: "(4) Relevant Computation"
+  - title: "(4) Computation"
     contents:
       - has_concept("compute")
   - title: "(5) Data"

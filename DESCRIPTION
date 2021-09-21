@@ -7,11 +7,10 @@ Description: More details about what the package does. See
       <http://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file>
       for details on how to write this part.
 License: MIT + file LICENSE
-Suggests: tinytest
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 RdMacros: Rdpack
-Imports: Rcpp (>= 1.0.6), Rdpack, geigen, igraph, latentnet, maotai, stats, network, utils
+Imports: Rcpp (>= 1.0.6), Rdpack, geigen, igraph, lvm4net, maotai, stats, network, utils
 LinkingTo: Rcpp, RcppArmadillo
 Depends: 
     R (>= 2.10)

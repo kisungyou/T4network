@@ -5,7 +5,7 @@
 \alias{karate}
 \title{Load Zachary's Karate club network}
 \format{
-a data.frame containing\describe{
+a named list containing\describe{
 \item{A}{a \eqn{(34\times 34)} adjacency matrix that is binary and symmetric.}
 \item{label}{a length-\eqn{34} vector of class membership.}
 }

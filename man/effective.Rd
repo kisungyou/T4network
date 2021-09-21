@@ -22,18 +22,14 @@ only accepts a network of \eqn{\lbrace 0, 1 \rbrace } binary edges.
 ## load the karate club data
 data(karate, package="T4network")
 
-## compute effective resistance & extract the label
-karate.eff = effective(karate$A)
-karate.lab = karate$label
-
-## find the metric structure and embed using MDS
-karate.met = stats::as.dist(sqrt(karate.eff))
-karate.2d  = stats::cmdscale(karate.met)
+## compute effective resistance & compute metrics
+effres = effective(karate$A)
+effmet = sqrt(effres)
 
 ## visualize
 opar <- par(no.readonly=TRUE)
-plot(karate.2d, col=karate.lab, pch=19, xlab="x", ylab="y", 
-     main="Embedding with MDS+Effective Resistance")
+par(pty="s")
+image(effmet[,34:1], axes=FALSE, main="metric matrix from ER")
 par(opar)
 
 }

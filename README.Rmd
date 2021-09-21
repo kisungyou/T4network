@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 **T4network** is an **R** package for network analysis. It is not aimed at replacing well-established software. Rather, it focuses on 
-delivering a number of algorithms that are not available from those.
+delivering a number of algorithms that are mostly not available from those.
 
 ## Installation
 

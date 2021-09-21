@@ -4,26 +4,31 @@
 \alias{lsm}
 \title{Fit a Latent Space Model for a Binary Network}
 \usage{
-lsm(graph, ndim = 2)
+lsm(graph, ndim = 2, nstart = 5)
 }
 \description{
 Fit a Latent Space Model for a Binary Network
 }
 \examples{
+\donttest{
 ## load the karate club data
 data(karate, package="T4network")
 
-## extract the label
-karate.lab = karate$label
-
 ## compute 2-dimensional latent space
-karate.lsm = lsm(karate$A, ndim=2)
+lsm.embed = lsm(karate$A, ndim=2)
+
+## prepare for plotting with 'igraph' with fixed layout
+obj.igraph = igraph::graph_from_adjacency_matrix(karate$A, mode="undirected")
 
 ## visualize
 opar <- par(no.readonly=TRUE)
-plot(karate.lsm$latent, col=karate.lab, pch=19, xlab="x", ylab="y", 
-     main="Latent Space Embedding")
+par(mfrow=c(1,2))
+plot(obj.igraph, vertex.color=karate$label, vertex.label=NA, 
+     main="igraph visualization")
+plot(obj.igraph, vertex.color=karate$label, vertex.label=NA,
+     layout=lsm.embed$latent, main="Latent space embedding")
 par(opar)
+}
 
 }
 \concept{inference}

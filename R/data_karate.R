@@ -11,7 +11,7 @@
 #' data(karate, package="T4network")
 #' }
 #'
-#' @format a data.frame containing\describe{
+#' @format a named list containing\describe{
 #' \item{A}{a \eqn{(34\times 34)} adjacency matrix that is binary and symmetric.}
 #' \item{label}{a length-\eqn{34} vector of class membership.}
 #' }

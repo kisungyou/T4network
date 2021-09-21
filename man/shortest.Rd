@@ -21,19 +21,13 @@ only accepts a symmetric network of \eqn{\lbrace 0, 1 \rbrace } binary edges.
 ## load the karate club data
 data(karate, package="T4network")
 
-## extract the label
-karate.lab = karate$label
-
 ## compute shortest-path distance
-karate.spd = shortest(karate$A)
-
-## embed using MDS
-karate.2d  = stats::cmdscale(stats::as.dist(karate.spd))
+dist.spd = shortest(karate$A)
 
 ## visualize
 opar <- par(no.readonly=TRUE)
-plot(karate.2d, col=karate.lab, pch=19, xlab="x", ylab="y", 
-     main="Shortest-Path Distance Embedding")
+par(pty="s")
+image(dist.spd[,34:1], axes=FALSE, main="shortest-path distance matrix")
 par(opar)
 
 }
