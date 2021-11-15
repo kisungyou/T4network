@@ -23,3 +23,23 @@
 #' 
 #' @concept data
 "Celegans.frontal"
+
+
+
+
+# plot(Celegans.frontal$igraph, vertex.label=NA)
+# 
+# ## load the karate club data
+# data(Celegans.frontal, package="T4network")
+# 
+# ## gePHATE
+# Cef.eff = gePHATE(Celegans.frontal$igraph)
+# 
+# ## visualize
+# opar <- par(no.readonly=TRUE)
+# par(mfrow=c(1,2))
+# plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA,
+#      main="igraph visualization")
+# plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA,
+#      layout=karate.eff$embed, main="gePHATE-effective")
+# par(opar)

@@ -4,19 +4,13 @@
 \alias{gePHATE}
 \title{Graph Embedding with PHATE}
 \usage{
-gePHATE(
-  graph,
-  ndim = 2,
-  metrize = c("effective", "shortest"),
-  nnbd = 5,
-  alpha = 2,
-  ...
-)
+gePHATE(graph, ndim = 2, nnbd = 5, alpha = 2, ...)
 }
 \description{
 Graph Embedding with PHATE
 }
 \examples{
+\donttest{
 ## load the karate club data
 data(karate, package="T4network")
 
@@ -25,21 +19,19 @@ karate.lab = karate$label
 
 ## gePHATE with different metrizations
 karate.eff = gePHATE(karate$A, metrize="effective")
-karate.spd = gePHATE(karate$A, metrize="shortest")
 
 ## prepare for igraph plotting tools
 obj.igraph = igraph::graph_from_adjacency_matrix(karate$A, mode="undirected")
 
 ## visualize
 opar <- par(no.readonly=TRUE)
-par(mfrow=c(1,3))
+par(mfrow=c(1,2))
 plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA,
      main="igraph visualization")
 plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA, 
      layout=karate.eff$embed, main="gePHATE-effective")
-plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA, 
-     layout=karate.spd$embed, main="gePHATE-shortest")
 par(opar)
+}
 
 }
 \concept{embedding}

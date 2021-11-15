@@ -8,7 +8,7 @@ Description: More details about what the package does. See
       for details on how to write this part.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 RdMacros: Rdpack
 Imports: Rcpp (>= 1.0.6), Rdpack, geigen, igraph, lvm4net, maotai, stats, network, utils
 LinkingTo: Rcpp, RcppArmadillo

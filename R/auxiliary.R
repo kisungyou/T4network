@@ -11,8 +11,7 @@
 #   - one of three types
 #   - allow : symmetric (default: TRUE)
 #   - allow : binary    (default: TRUE)
-#' @keywords internal
-#' @noRd
+#' @export
 aux_networkinput <- function(graph, fname, req.symmetric=TRUE, req.binary=TRUE){
   # type casting
   if (inherits(graph,"igraph")){

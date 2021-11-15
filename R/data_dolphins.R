@@ -42,3 +42,22 @@
 # label[id2] = 1
 # label[id1] = 2
 # dolphins$label = label
+
+
+# # load the data
+# data(dolphins, package="T4network")
+# 
+# # label
+# dol.lab = dolphins$label
+# 
+# # gePHATE
+# dol.eff = gePHATE(dolphins$igraph)
+# 
+# ## visualize
+# opar <- par(no.readonly=TRUE)
+# par(mfrow=c(1,2))
+# plot(dolphins$igraph, vertex.color=dol.lab, vertex.label=NA,
+#      main="igraph visualization")
+# plot(dolphins$igraph, vertex.color=dol.lab, vertex.label=NA,
+#      layout=dol.eff$embed, main="gePHATE-effective")
+# par(opar)

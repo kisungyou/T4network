@@ -48,8 +48,7 @@ effective <- function(graph){
 
 
 # auxiliary ---------------------------------------------------------------
-#' @keywords internal
-#' @noRd
+#' @export
 effective_cnn <- function(A){ # adjacency matrix
   # parameters and pre-compute L
   if (inherits(A, "dgCMatrix")){
@@ -79,6 +78,7 @@ effective_cnn <- function(A){ # adjacency matrix
   if (!isSymmetric(out.cpp)){
     out.cpp = (out.cpp + t(out.cpp))/2
   }
+  out.cpp[(out.cpp<0)]=0 # numerically instable
   return(out.cpp)
 }
 #' @keywords internal

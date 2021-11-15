@@ -1,7 +1,8 @@
 #' Graph Embedding with PHATE
 #' 
 #' 
-#' @examples 
+#' @examples
+#' \donttest{
 #' ## load the karate club data
 #' data(karate, package="T4network")
 #' 
@@ -10,31 +11,29 @@
 #' 
 #' ## gePHATE with different metrizations
 #' karate.eff = gePHATE(karate$A, metrize="effective")
-#' karate.spd = gePHATE(karate$A, metrize="shortest")
 #' 
 #' ## prepare for igraph plotting tools
 #' obj.igraph = igraph::graph_from_adjacency_matrix(karate$A, mode="undirected")
 #' 
 #' ## visualize
 #' opar <- par(no.readonly=TRUE)
-#' par(mfrow=c(1,3))
+#' par(mfrow=c(1,2))
 #' plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA,
 #'      main="igraph visualization")
 #' plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA, 
 #'      layout=karate.eff$embed, main="gePHATE-effective")
-#' plot(obj.igraph, vertex.color=karate.lab, vertex.label=NA, 
-#'      layout=karate.spd$embed, main="gePHATE-shortest")
 #' par(opar)
+#' }
 #' 
 #' @concept embedding
 #' @export
-gePHATE <- function(graph, ndim=2, metrize=c("effective","shortest"), nnbd=5, alpha=2, ...){
+gePHATE <- function(graph, ndim=2, nnbd=5, alpha=2, ...){
   ## PREPROCESSING
   mynnbd   = max(1, round(nnbd))
   myalpha  = max(as.double(alpha), 1.0)
-  mymetric = match.arg(metrize)
   myndim   = max(1, round(ndim))
 
+  mymetric = "effective" # let's ignore the shortest-path distance for now.
   if (all(mymetric=="effective")){
     A = aux_networkinput(graph, "gePHATE", req.symmetric = FALSE, req.binary = TRUE)
   } else {
@@ -95,11 +94,11 @@ PHATE2dist <- function(P){ # on the sphere, geodesic distance
   # process
   N   = base::nrow(P)
   Psp = array(0,c(N,N))
+  myeps = sqrt(.Machine$double.eps)
   for (n in 1:N){
     tgt = as.vector(P[n,])/base::sum(as.vector(P[n,]))
-    Psp[n,] = sqrt(tgt)
+    Psp[n,] = log(tgt+myeps)
   }
-  myeps = 100*.Machine$double.eps
   
   # distance
   distobj = array(0,c(N,N))
@@ -108,7 +107,7 @@ PHATE2dist <- function(P){ # on the sphere, geodesic distance
     for (j in (i+1):N){
       tgtj = as.vector(Psp[j,])
       if (sqrt(sum((tgti-tgtj)^2)) > myeps){
-        distobj[i,j] <- distobj[j,i] <- base::acos(base::sum(tgti*tgtj))
+        distobj[i,j] <- distobj[j,i] <- sqrt(sum((tgti-tgtj)^2))
       }
     }
   }
